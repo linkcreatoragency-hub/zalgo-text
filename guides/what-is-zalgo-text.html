@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is Zalgo Text? Origin, Meaning and How It Works</title>
+<meta name="description" content="Zalgo text explained: where the name came from, the Unicode combining-mark loophole behind it, why it renders differently everywhere, and how to undo it.">
+<link rel="canonical" href="https://zalgo-text.org/guides/what-is-zalgo-text">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Zalgo Text Generator">
+<meta property="og:title" content="What Is Zalgo Text? Origin, Meaning and How It Works">
+<meta property="og:description" content="Zalgo text explained: where the name came from, the Unicode combining-mark loophole behind it, why it renders differently everywhere, and how to undo it.">
+<meta property="og:url" content="https://zalgo-text.org/guides/what-is-zalgo-text">
+<meta property="og:image" content="https://zalgo-text.org/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Is Zalgo Text? Origin, Meaning and How It Works">
+<meta name="twitter:description" content="Zalgo text explained: where the name came from, the Unicode combining-mark loophole behind it, why it renders differently everywhere, and how to undo it.">
+<meta name="twitter:image" content="https://zalgo-text.org/img/og-image.png">
+<meta name="theme-color" content="#0a0a12">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"></noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://zalgo-text.org/#org","name":"Zalgo Text Generator","url":"https://zalgo-text.org/","logo":{"@type":"ImageObject","url":"https://zalgo-text.org/img/logo.png","width":512,"height":512},"description":"Free online Zalgo text generator and Unicode font tools — turn plain text into glitchy, cursed, cursive and fancy styles you can copy and paste anywhere."},{"@type":"WebSite","@id":"https://zalgo-text.org/#website","url":"https://zalgo-text.org/","name":"Zalgo Text Generator","inLanguage":"en-US","publisher":{"@id":"https://zalgo-text.org/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://zalgo-text.org/tools?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"BlogPosting","@id":"https://zalgo-text.org/guides/what-is-zalgo-text#post","headline":"What Is Zalgo Text?","description":"Zalgo text explained: where the name came from, the Unicode combining-mark loophole behind it, why it renders differently everywhere, and how to undo it.","inLanguage":"en-US","url":"https://zalgo-text.org/guides/what-is-zalgo-text","datePublished":"2026-08-08","dateModified":"2026-08-08","wordCount":1150,"author":{"@id":"https://zalgo-text.org/#org"},"publisher":{"@id":"https://zalgo-text.org/#org"},"image":"https://zalgo-text.org/img/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://zalgo-text.org/guides/what-is-zalgo-text#page"},"isPartOf":{"@id":"https://zalgo-text.org/guides#blog"}},{"@type":"WebPage","@id":"https://zalgo-text.org/guides/what-is-zalgo-text#page","url":"https://zalgo-text.org/guides/what-is-zalgo-text","name":"What Is Zalgo Text? Origin, Meaning and How It Works","description":"Zalgo text explained: where the name came from, the Unicode combining-mark loophole behind it, why it renders differently everywhere, and how to undo it.","inLanguage":"en-US","isPartOf":{"@id":"https://zalgo-text.org/#website"},"datePublished":"2026-08-08","dateModified":"2026-08-08","about":{"@id":"https://zalgo-text.org/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zalgo-text.org/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://zalgo-text.org/guides"},{"@type":"ListItem","position":3,"name":"What Is Zalgo Text?","item":"https://zalgo-text.org/guides/what-is-zalgo-text"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does Zalgo mean?","acceptedAnswer":{"@type":"Answer","text":"Zalgo was an internet horror character created around 2004 in edited comic strips. The corrupted-text effect took its name from the character and long outlived it."}},{"@type":"Question","name":"How is Zalgo text made?","acceptedAnswer":{"@type":"Answer","text":"By attaching many Unicode combining marks to each character. The marks are zero-width and stack above, through and below the letters."}},{"@type":"Question","name":"Is Zalgo text harmful to computers?","acceptedAnswer":{"@type":"Answer","text":"No. It is ordinary text and nothing is executed. The real issues are accessibility, layout disruption and searchability."}},{"@type":"Question","name":"Why does Zalgo text look different on my phone?","acceptedAnswer":{"@type":"Answer","text":"Mobile apps clamp how far combining marks may overflow their line, so the same string looks tamer than it does in a desktop text editor."}},{"@type":"Question","name":"Can Zalgo text be reversed?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely. The marks are added on top of the original characters, so removing them restores the text exactly."}},{"@type":"Question","name":"Who invented Zalgo text?","acceptedAnswer":{"@type":"Answer","text":"The character came from animator Dave Kelly; the text technique emerged from forum users experimenting with Unicode combining marks in the late 2000s."}}]}]}</script>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="/"><span class="logo-mark">Z̸</span> zalgo<em>-text</em>.org</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Zalgo Generator</a></li>
+      <li><a href="/tools">All Tools</a></li>
+      <li><a href="/glitch-text-generator">Glitch Text</a></li>
+      <li><a href="/fancy-text-generator">Fancy Text</a></li>
+      <li><a href="/cursed-text-generator">Cursed Text</a></li>
+      <li><a href="/guides">Guides</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a><span class="sep">/</span><a href="/guides">Guides</a><span class="sep">/</span><span aria-current="page">What Is Zalgo Text?</span></div></nav><main><div class="container"><div class="page-head"><h1>What Is Zalgo Text?</h1><p class="meta-line">Updated 8 August 2026 · about 1150 words</p><p class="lead">Everyone recognises the corrupted, glitching text. Far fewer people know that it comes from a 2004 creepypasta character, or that it works because of a deliberate design decision in the Unicode standard.</p></div></div><section><div class="container prose"><nav class="toc" aria-label="Contents"><h2>On this page</h2><ol><li><a href="#s1">The short answer</a></li><li><a href="#s2">Where the name came from</a></li><li><a href="#s3">The Unicode loophole</a></li><li><a href="#s4">Why it looks different everywhere</a></li><li><a href="#s5">Is Zalgo text dangerous?</a></li><li><a href="#s6">How to undo it</a></li><li><a href="#faq">FAQ</a></li></ol></nav>
+<h2 id="s1">The short answer</h2>
+<p>Zalgo text is ordinary text with a large number of Unicode <b>combining marks</b> attached to each character.
+Combining marks are zero-width — they take up no space of their own and simply draw on top of whatever came
+before them. Stack enough of them and the letters vanish beneath a thicket of hooks, dots and strokes that
+spills into the lines above and below.</p>
+<p>It is not an image, not a font and not a hack. It is plain text, which is why it can be copied into a Discord
+message, an Instagram bio or a YouTube title and keep working.</p>
+
+<h2 id="s2">Where the name came from</h2>
+<p>Zalgo began around 2004 as an internet horror character. The animator Dave Kelly, working under the name
+Shmorky, posted edited versions of newspaper comic strips — <i>Nancy</i>, <i>Archie</i>, <i>Garfield</i> — in
+which the cheerful characters gradually descended into cosmic dread while corrupted text crawled across the
+panels.</p>
+<p>The character was described with the phrase <i>“he who waits behind the wall”</i>, and the strips ended with
+speech bubbles collapsing into unreadable noise. The gag spread through Something Awful and 4chan and became a
+recurring format: take something wholesome, add creeping corruption.</p>
+<p>When forum users discovered that Unicode combining marks could produce a similar effect in ordinary text, the
+technique inherited the name. Two decades later most people using Zalgo text have never heard of the character —
+the style completely outlived the meme that produced it.</p>
+
+<h2 id="s3">The Unicode loophole that makes it work</h2>
+<p>Unicode faced a genuine encoding problem. Written languages place an enormous number of accents on letters,
+and encoding every possible letter-plus-accent pair separately would have required a hopeless number of
+codepoints — and would still have missed combinations nobody had thought of.</p>
+<p>The solution was <b>combining characters</b>. Instead of one codepoint for <i>é</i>, you can write <i>e</i>
+followed by U+0301 (combining acute accent), and the renderer draws the accent on the e. Vietnamese needs several
+marks on a single vowel; some Indic and African scripts need more. So the standard deliberately does not set a
+maximum.</p>
+<p>That is the whole loophole. Nothing says a letter may not carry fifty marks, so a renderer given fifty
+obediently draws fifty. Zalgo is not exploiting a bug — it is using a deliberately open-ended design far outside
+its intended range.</p>
+<div class="note"><b>Why it bleeds into other lines:</b> a combining mark has no width, but it does have height.
+Marks stack upward and downward beyond the line box, and unless the application clips them they paint over
+whatever is next to them.</div>
+
+<h2 id="s4">Why it looks different everywhere</h2>
+<p>The same string can look wildly different depending on where you paste it, and the text is not what changes —
+the renderer is.</p>
+<ul class="dots">
+<li><b>Plain text editors and terminals</b> usually draw everything, so the corruption is at its most extreme.</li>
+<li><b>Browsers</b> increasingly clamp overflow so one element cannot paint over another.</li>
+<li><b>Mobile apps</b> clip hardest, because letting one comment cover five others would break the feed.</li>
+<li><b>Older systems</b> may have no glyph for some marks and show boxes instead.</li>
+</ul>
+<p>This is why a Zalgo string that looks apocalyptic in a text file looks merely untidy on Instagram.</p>
+
+<h2 id="s5">Is Zalgo text dangerous?</h2>
+<p>Not in any technical sense. It is text — nothing is executed, nothing is installed, and no software is
+compromised by rendering it. The genuine concerns are practical rather than security-related:</p>
+<ul class="dots">
+<li><b>Accessibility.</b> Screen readers announce combining marks. One Zalgo word can become dozens of spoken
+accent names, and a Zalgo username repeats that on every message.</li>
+<li><b>Layout.</b> Marks can overlap adjacent content, which is disruptive in a chat.</li>
+<li><b>Moderation.</b> Many communities treat walls of corrupted text as spam, regardless of intent.</li>
+<li><b>Search.</b> Combining marks change the byte sequence, so searching for the plain word may not match.</li>
+</ul>
+<p>None of this makes Zalgo bad. It makes it a display effect — great in a caption or thumbnail, poor in a place
+where people need to read.</p>
+<div class="cta"><h3>Try the generator</h3><p>Type anything and watch it corrupt in real time, with a slider for exactly how far to take it.</p><a class="btn" href="/">Open the Zalgo text generator</a></div>
+<h2 id="s6">How to undo it</h2>
+<p>Because combining marks are additive rather than substitutive, removing them restores the original text
+perfectly. Every original character is still there, in order, underneath the marks.</p>
+<p>The <a href="/zalgo-to-normal-text">Zalgo to normal text</a> tool does exactly that: it deletes every character
+in the combining ranges and leaves everything else untouched. Genuine accented letters such as <i>café</i> survive,
+because those are stored as single precomposed characters rather than as letter-plus-mark pairs.</p>
+<h2 id="more">More guides</h2><div class="guide-grid"><a class="guide-card" href="/guides/unicode-combining-marks"><span class="top">🔤</span><span class="bd"><h3>How Unicode Combining Marks Work</h3><p>A plain-English explanation of the zero-width characters behind Zalgo, strikethrough and every accent you have ever typed.</p></span></a><a class="guide-card" href="/guides/copy-paste-fonts-safely"><span class="top">♿</span><span class="bd"><h3>Using Copy-Paste Fonts Responsibly</h3><p>What styled text does to screen readers, search engines and your own findability — and how to get the look without the cost.</p></span></a></div></div></section><div class="container"><div class="related"><h3>Try it yourself</h3><div class="tool-grid"><a class="tool-link" href="/"><span class="e" aria-hidden="true">🕸️</span><span>Zalgo Text Generator</span><span class="ar" aria-hidden="true">→</span></a><a class="tool-link" href="/zalgo-to-normal-text"><span class="e" aria-hidden="true">🧼</span><span>Zalgo to Normal Text</span><span class="ar" aria-hidden="true">→</span></a><a class="tool-link" href="/glitch-text-generator"><span class="e" aria-hidden="true">📺</span><span>Glitch Text Generator</span><span class="ar" aria-hidden="true">→</span></a><a class="tool-link" href="/cursed-text-generator"><span class="e" aria-hidden="true">😈</span><span>Cursed Text Generator</span><span class="ar" aria-hidden="true">→</span></a></div></div></div><section class="alt"><div class="container prose"><h2 id="faq">Frequently asked questions</h2><div class="faq"><details><summary>What does Zalgo mean?</summary><div class="a"><p>Zalgo was an internet horror character created around 2004 in edited comic strips. The corrupted-text effect took its name from the character and long outlived it.</p></div></details><details><summary>How is Zalgo text made?</summary><div class="a"><p>By attaching many Unicode combining marks to each character. The marks are zero-width and stack above, through and below the letters.</p></div></details><details><summary>Is Zalgo text harmful to computers?</summary><div class="a"><p>No. It is ordinary text and nothing is executed. The real issues are accessibility, layout disruption and searchability.</p></div></details><details><summary>Why does Zalgo text look different on my phone?</summary><div class="a"><p>Mobile apps clamp how far combining marks may overflow their line, so the same string looks tamer than it does in a desktop text editor.</p></div></details><details><summary>Can Zalgo text be reversed?</summary><div class="a"><p>Yes, completely. The marks are added on top of the original characters, so removing them restores the text exactly.</p></div></details><details><summary>Who invented Zalgo text?</summary><div class="a"><p>The character came from animator Dave Kelly; the text technique emerged from forum users experimenting with Unicode combining marks in the late 2000s.</p></div></details></div></div></section></main><footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-about">
+        <div class="logo"><span class="logo-mark">Z̸</span> zalgo<em>-text</em>.org</div>
+        <p>Free Unicode text tools that run entirely in your browser. Generate Zalgo, glitch, cursed and fancy
+        text, then copy and paste it into Instagram, TikTok, Discord, YouTube or anywhere else. No sign-up,
+        no limits, nothing stored.</p>
+      </div>
+      <div><h3 class="f-h">Zalgo & Glitch</h3><ul><li><a href="/">Zalgo Text Generator</a></li><li><a href="/glitch-text-generator">Glitch Text</a></li><li><a href="/cursed-text-generator">Cursed Text</a></li><li><a href="/creepy-text-generator">Creepy Text</a></li><li><a href="/zalgo-to-normal-text">Zalgo to Normal</a></li></ul></div><div><h3 class="f-h">Fancy Fonts</h3><ul><li><a href="/fancy-text-generator">Fancy Text</a></li><li><a href="/cursive-text-generator">Cursive Text</a></li><li><a href="/gothic-text-generator">Gothic Text</a></li><li><a href="/bold-text-generator">Bold Text</a></li><li><a href="/small-caps-generator">Small Caps</a></li></ul></div><div><h3 class="f-h">Site</h3><ul><li><a href="/tools">All Tools</a></li><li><a href="/guides">Guides</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="copy">© 2026 Zalgo Text Generator · zalgo-text.org — <a href="/privacy-policy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/disclaimer">Disclaimer</a> · <a href="/contact">Contact</a></div>
+  </div>
+</footer>
+<script src="/js/styles-data.js"></script>
+<script src="/js/engine.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

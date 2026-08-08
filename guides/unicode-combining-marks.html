@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Unicode Combining Marks Work (Plain English)</title>
+<meta name="description" content="A plain-English guide to Unicode combining marks: what they are, which blocks they live in, and how normalisation breaks naive text cleaning.">
+<link rel="canonical" href="https://zalgo-text.org/guides/unicode-combining-marks">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Zalgo Text Generator">
+<meta property="og:title" content="How Unicode Combining Marks Work (Plain English)">
+<meta property="og:description" content="A plain-English guide to Unicode combining marks: what they are, which blocks they live in, and how normalisation breaks naive text cleaning.">
+<meta property="og:url" content="https://zalgo-text.org/guides/unicode-combining-marks">
+<meta property="og:image" content="https://zalgo-text.org/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Unicode Combining Marks Work (Plain English)">
+<meta name="twitter:description" content="A plain-English guide to Unicode combining marks: what they are, which blocks they live in, and how normalisation breaks naive text cleaning.">
+<meta name="twitter:image" content="https://zalgo-text.org/img/og-image.png">
+<meta name="theme-color" content="#0a0a12">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"></noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://zalgo-text.org/#org","name":"Zalgo Text Generator","url":"https://zalgo-text.org/","logo":{"@type":"ImageObject","url":"https://zalgo-text.org/img/logo.png","width":512,"height":512},"description":"Free online Zalgo text generator and Unicode font tools — turn plain text into glitchy, cursed, cursive and fancy styles you can copy and paste anywhere."},{"@type":"WebSite","@id":"https://zalgo-text.org/#website","url":"https://zalgo-text.org/","name":"Zalgo Text Generator","inLanguage":"en-US","publisher":{"@id":"https://zalgo-text.org/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://zalgo-text.org/tools?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"BlogPosting","@id":"https://zalgo-text.org/guides/unicode-combining-marks#post","headline":"How Unicode Combining Marks Work","description":"A plain-English guide to Unicode combining marks: what they are, which blocks they live in, and how normalisation breaks naive text cleaning.","inLanguage":"en-US","url":"https://zalgo-text.org/guides/unicode-combining-marks","datePublished":"2026-08-08","dateModified":"2026-08-08","wordCount":1200,"author":{"@id":"https://zalgo-text.org/#org"},"publisher":{"@id":"https://zalgo-text.org/#org"},"image":"https://zalgo-text.org/img/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://zalgo-text.org/guides/unicode-combining-marks#page"},"isPartOf":{"@id":"https://zalgo-text.org/guides#blog"}},{"@type":"WebPage","@id":"https://zalgo-text.org/guides/unicode-combining-marks#page","url":"https://zalgo-text.org/guides/unicode-combining-marks","name":"How Unicode Combining Marks Work (Plain English)","description":"A plain-English guide to Unicode combining marks: what they are, which blocks they live in, and how normalisation breaks naive text cleaning.","inLanguage":"en-US","isPartOf":{"@id":"https://zalgo-text.org/#website"},"datePublished":"2026-08-08","dateModified":"2026-08-08","about":{"@id":"https://zalgo-text.org/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zalgo-text.org/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://zalgo-text.org/guides"},{"@type":"ListItem","position":3,"name":"How Unicode Combining Marks Work","item":"https://zalgo-text.org/guides/unicode-combining-marks"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a Unicode combining mark?","acceptedAnswer":{"@type":"Answer","text":"A zero-width character that decorates the character before it — an accent, a stroke, a ring. It takes no space of its own and forms a single visible unit with its base."}},{"@type":"Question","name":"Why does Unicode allow unlimited combining marks?","acceptedAnswer":{"@type":"Answer","text":"Because several writing systems legitimately need multiple marks on one letter, and capping the number would break them. Zalgo exploits that open-ended design."}},{"@type":"Question","name":"What is the difference between NFC and NFD?","acceptedAnswer":{"@type":"Answer","text":"NFC composes base+mark pairs into precomposed characters where possible; NFD splits them apart. Choosing the wrong one is the usual cause of broken text cleaning."}},{"@type":"Question","name":"How do I strip Zalgo without losing accents?","acceptedAnswer":{"@type":"Answer","text":"Remove combining characters from the raw string without normalising first. Precomposed accented letters are single characters and survive."}},{"@type":"Question","name":"Do combining marks affect string length?","acceptedAnswer":{"@type":"Answer","text":"Yes. A letter with three marks is four codepoints. Always work with grapheme clusters when counting or slicing user-visible characters."}},{"@type":"Question","name":"How can a site block Zalgo spam?","acceptedAnswer":{"@type":"Answer","text":"Limit consecutive combining marks per base character — around four is generous for real languages — rather than stripping them, which would break many scripts."}}]}]}</script>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="/"><span class="logo-mark">Z̸</span> zalgo<em>-text</em>.org</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Zalgo Generator</a></li>
+      <li><a href="/tools">All Tools</a></li>
+      <li><a href="/glitch-text-generator">Glitch Text</a></li>
+      <li><a href="/fancy-text-generator">Fancy Text</a></li>
+      <li><a href="/cursed-text-generator">Cursed Text</a></li>
+      <li><a href="/guides">Guides</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a><span class="sep">/</span><a href="/guides">Guides</a><span class="sep">/</span><span aria-current="page">How Unicode Combining Marks Work</span></div></nav><main><div class="container"><div class="page-head"><h1>How Unicode Combining Marks Work</h1><p class="meta-line">Updated 8 August 2026 · about 1200 words</p><p class="lead">The same zero-width characters that let you type café are what make Zalgo text possible. Here is how they work, why the standard was designed this way, and the trap they set for anyone trying to clean text.</p></div></div><section><div class="container prose"><nav class="toc" aria-label="Contents"><h2>On this page</h2><ol><li><a href="#s1">What a combining mark is</a></li><li><a href="#s2">Why the standard works this way</a></li><li><a href="#s3">The blocks they live in</a></li><li><a href="#s4">Normalisation and cleaning</a></li><li><a href="#s5">Other uses</a></li><li><a href="#s6">Notes for developers</a></li><li><a href="#faq">FAQ</a></li></ol></nav>
+<h2 id="s1">What a combining mark actually is</h2>
+<p>Most characters you type occupy space. A combining mark does not. It is a character with zero advance width
+whose job is to decorate the character immediately before it.</p>
+<p>Type <code>e</code> then U+0301 and you get <b>é</b> — one visible letter built from two characters. Type
+<code>a</code> then U+0308 and you get <b>ä</b>. The renderer positions the mark over the base character and moves
+on without advancing the cursor.</p>
+<p>Unicode calls the pair a <b>grapheme cluster</b>: a sequence of codepoints that a human reads as one character.
+This distinction matters constantly in programming — the string <i>é</i> may have a length of 1 or 2 depending on
+how it was typed.</p>
+
+<h2 id="s2">Why the standard works this way</h2>
+<p>The alternative would have been to encode every letter-plus-accent combination as its own character. That
+approach fails quickly. Vietnamese routinely stacks a tone mark on an already-modified vowel. Several African and
+Indic scripts combine multiple marks on one base. Academic transcription systems invent combinations as
+needed.</p>
+<p>Encoding every possibility would require an unbounded number of codepoints and still miss whatever someone
+invented next week. Combining marks solve it generatively: encode the base letters once, encode the marks once,
+and let any combination be expressed.</p>
+<p>Unicode does include a few thousand precomposed characters — é, ñ, ü and friends — but purely for
+backwards-compatibility with older encodings, not because they were the plan.</p>
+
+<h2 id="s3">The blocks the marks live in</h2>
+<div class="tbl-wrap"><table class=""><thead><tr><th>Block</th><th>Range</th><th>What is in it</th></tr></thead><tbody><tr><td>Combining Diacritical Marks</td><td>U+0300–U+036F</td><td>The core set: acutes, graves, tildes, rings, hooks — the marks Zalgo mostly uses</td></tr><tr><td>Combining Diacritical Marks Extended</td><td>U+1AB0–U+1AFF</td><td>Additions for phonetic and medievalist notation</td></tr><tr><td>Combining Diacritical Marks Supplement</td><td>U+1DC0–U+1DFF</td><td>More specialist marks, many for German dialectology</td></tr><tr><td>Combining Diacritical Marks for Symbols</td><td>U+20D0–U+20FF</td><td>Arrows, rings and overlays used in mathematics</td></tr><tr><td>Combining Half Marks</td><td>U+FE20–U+FE2F</td><td>Marks that span two base characters</td></tr></tbody></table></div>
+<p>Zalgo generators draw almost entirely from the first block, split into three groups: marks that sit above the
+letter, marks that overlay it, and marks that sit below. That is exactly what the three checkboxes on our
+generators control.</p>
+
+<h2 id="s4">Normalisation, and why cleaning text is tricky</h2>
+<p>Because <i>é</i> can be stored two different ways, Unicode defines <b>normalisation forms</b> to convert
+between them:</p>
+<ul class="dots">
+<li><b>NFC (composed)</b> — combine base+mark into a precomposed character wherever one exists. What most systems store.</li>
+<li><b>NFD (decomposed)</b> — split precomposed characters back into base+mark.</li>
+</ul>
+<p>This creates a real trap for anyone writing a Zalgo cleaner. The obvious approach — normalise to NFD, strip
+everything in the combining ranges — also destroys legitimate accents, turning <i>café</i> into <i>cafe</i>.</p>
+<p>Normalise to NFC first instead and you get the opposite bug: base+mark pairs recompose into precomposed
+letters, so some Zalgo marks silently survive as accented characters.</p>
+<div class="note"><b>The fix:</b> do not normalise at all. Strip combining characters from the raw string.
+Precomposed accents are single characters and pass through untouched, while stacked Zalgo marks — always separate
+combining characters — are removed. That is what our
+<a href="/zalgo-to-normal-text">Zalgo to normal text</a> tool does.</div>
+
+<h2 id="s5">Other things combining marks are used for</h2>
+<ul class="dots">
+<li><b>Strikethrough and underline.</b> U+0336 draws a line through the previous character; U+0332 draws one
+under it. That is the entire mechanism behind our
+<a href="/strikethrough-text-generator">strikethrough</a> and <a href="/underline-text-generator">underline</a>
+tools — and why the underlying text stays searchable.</li>
+<li><b>Enclosing marks</b> such as U+20DD draw a circle around the previous character.</li>
+<li><b>Phonetic transcription</b> relies on them heavily; IPA would be impossible without.</li>
+<li><b>Historical and liturgical texts</b> use marks for cantillation, vowel pointing and scribal abbreviation.</li>
+</ul>
+<div class="cta"><h3>See it in action</h3><p>Watch marks stack in real time as you drag the craziness slider.</p><a class="btn" href="/">Open the Zalgo generator</a></div>
+<h2 id="s6">Practical notes for developers</h2>
+<ul class="dots">
+<li><b>Never assume one codepoint equals one character.</b> Iterate over grapheme clusters, not code units, or
+you will split a letter from its mark.</li>
+<li><b>Normalise before comparing.</b> Two strings that look identical can differ byte for byte. NFC is the usual
+choice for storage and comparison.</li>
+<li><b>Consider limiting marks in user input.</b> Capping consecutive combining characters — say, four per base —
+blocks Zalgo spam without breaking any real language.</li>
+<li><b>Clamp overflow in CSS.</b> Marks can paint outside their line box; <code>overflow: hidden</code> on the
+container stops one comment covering others.</li>
+<li><b>Do not strip marks blindly.</b> You will break every language that needs them. Limit, do not remove.</li>
+</ul>
+<h2 id="more">More guides</h2><div class="guide-grid"><a class="guide-card" href="/guides/what-is-zalgo-text"><span class="top">🕸️</span><span class="bd"><h3>What Is Zalgo Text?</h3><p>The full story: the creepypasta character, the Unicode loophole that made it possible, and why the effect outlived the meme.</p></span></a><a class="guide-card" href="/guides/unicode-font-styles-explained"><span class="top">✨</span><span class="bd"><h3>Every Unicode Font Style Explained</h3><p>A tour of the Unicode blocks behind bold, italic, script, gothic, bubble and full-width text, with the gaps in each set.</p></span></a></div></div></section><div class="container"><div class="related"><h3>Try it yourself</h3><div class="tool-grid"><a class="tool-link" href="/"><span class="e" aria-hidden="true">🕸️</span><span>Zalgo Text Generator</span><span class="ar" aria-hidden="true">→</span></a><a class="tool-link" href="/zalgo-to-normal-text"><span class="e" aria-hidden="true">🧼</span><span>Zalgo to Normal Text</span><span class="ar" aria-hidden="true">→</span></a><a class="tool-link" href="/strikethrough-text-generator"><span class="e" aria-hidden="true">S̶</span><span>Strikethrough Text</span><span class="ar" aria-hidden="true">→</span></a><a class="tool-link" href="/underline-text-generator"><span class="e" aria-hidden="true">U̲</span><span>Underline Text</span><span class="ar" aria-hidden="true">→</span></a></div></div></div><section class="alt"><div class="container prose"><h2 id="faq">Frequently asked questions</h2><div class="faq"><details><summary>What is a Unicode combining mark?</summary><div class="a"><p>A zero-width character that decorates the character before it — an accent, a stroke, a ring. It takes no space of its own and forms a single visible unit with its base.</p></div></details><details><summary>Why does Unicode allow unlimited combining marks?</summary><div class="a"><p>Because several writing systems legitimately need multiple marks on one letter, and capping the number would break them. Zalgo exploits that open-ended design.</p></div></details><details><summary>What is the difference between NFC and NFD?</summary><div class="a"><p>NFC composes base+mark pairs into precomposed characters where possible; NFD splits them apart. Choosing the wrong one is the usual cause of broken text cleaning.</p></div></details><details><summary>How do I strip Zalgo without losing accents?</summary><div class="a"><p>Remove combining characters from the raw string without normalising first. Precomposed accented letters are single characters and survive.</p></div></details><details><summary>Do combining marks affect string length?</summary><div class="a"><p>Yes. A letter with three marks is four codepoints. Always work with grapheme clusters when counting or slicing user-visible characters.</p></div></details><details><summary>How can a site block Zalgo spam?</summary><div class="a"><p>Limit consecutive combining marks per base character — around four is generous for real languages — rather than stripping them, which would break many scripts.</p></div></details></div></div></section></main><footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-about">
+        <div class="logo"><span class="logo-mark">Z̸</span> zalgo<em>-text</em>.org</div>
+        <p>Free Unicode text tools that run entirely in your browser. Generate Zalgo, glitch, cursed and fancy
+        text, then copy and paste it into Instagram, TikTok, Discord, YouTube or anywhere else. No sign-up,
+        no limits, nothing stored.</p>
+      </div>
+      <div><h3 class="f-h">Zalgo & Glitch</h3><ul><li><a href="/">Zalgo Text Generator</a></li><li><a href="/glitch-text-generator">Glitch Text</a></li><li><a href="/cursed-text-generator">Cursed Text</a></li><li><a href="/creepy-text-generator">Creepy Text</a></li><li><a href="/zalgo-to-normal-text">Zalgo to Normal</a></li></ul></div><div><h3 class="f-h">Fancy Fonts</h3><ul><li><a href="/fancy-text-generator">Fancy Text</a></li><li><a href="/cursive-text-generator">Cursive Text</a></li><li><a href="/gothic-text-generator">Gothic Text</a></li><li><a href="/bold-text-generator">Bold Text</a></li><li><a href="/small-caps-generator">Small Caps</a></li></ul></div><div><h3 class="f-h">Site</h3><ul><li><a href="/tools">All Tools</a></li><li><a href="/guides">Guides</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="copy">© 2026 Zalgo Text Generator · zalgo-text.org — <a href="/privacy-policy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/disclaimer">Disclaimer</a> · <a href="/contact">Contact</a></div>
+  </div>
+</footer>
+<script src="/js/styles-data.js"></script>
+<script src="/js/engine.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

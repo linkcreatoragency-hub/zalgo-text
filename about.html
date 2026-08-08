@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — zalgo-text.org</title>
+<meta name="description" content="Who is behind zalgo-text.org, how the Unicode tools are built and verified, and the principles behind the site.">
+<link rel="canonical" href="https://zalgo-text.org/about">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Zalgo Text Generator">
+<meta property="og:title" content="About — zalgo-text.org">
+<meta property="og:description" content="Who is behind zalgo-text.org, how the Unicode tools are built and verified, and the principles behind the site.">
+<meta property="og:url" content="https://zalgo-text.org/about">
+<meta property="og:image" content="https://zalgo-text.org/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — zalgo-text.org">
+<meta name="twitter:description" content="Who is behind zalgo-text.org, how the Unicode tools are built and verified, and the principles behind the site.">
+<meta name="twitter:image" content="https://zalgo-text.org/img/og-image.png">
+<meta name="theme-color" content="#0a0a12">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"></noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://zalgo-text.org/#org","name":"Zalgo Text Generator","url":"https://zalgo-text.org/","logo":{"@type":"ImageObject","url":"https://zalgo-text.org/img/logo.png","width":512,"height":512},"description":"Free online Zalgo text generator and Unicode font tools — turn plain text into glitchy, cursed, cursive and fancy styles you can copy and paste anywhere."},{"@type":"WebSite","@id":"https://zalgo-text.org/#website","url":"https://zalgo-text.org/","name":"Zalgo Text Generator","inLanguage":"en-US","publisher":{"@id":"https://zalgo-text.org/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://zalgo-text.org/tools?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://zalgo-text.org/about#page","url":"https://zalgo-text.org/about","name":"About — zalgo-text.org","description":"Who is behind zalgo-text.org, how the Unicode tools are built and verified, and the principles behind the site.","inLanguage":"en-US","isPartOf":{"@id":"https://zalgo-text.org/#website"},"datePublished":"2026-08-08","dateModified":"2026-08-08","about":{"@id":"https://zalgo-text.org/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zalgo-text.org/"},{"@type":"ListItem","position":2,"name":"About this site","item":"https://zalgo-text.org/about"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is zalgo-text.org free?","acceptedAnswer":{"@type":"Answer","text":"Yes, entirely. Every tool is free with no account, no limits and no watermark."}},{"@type":"Question","name":"Do you store the text I type?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens in your browser with JavaScript, so nothing is transmitted or stored."}},{"@type":"Question","name":"Are these real fonts?","acceptedAnswer":{"@type":"Answer","text":"No. They are Unicode characters that look like styled letters, which is why they work in apps that do not allow font changes."}},{"@type":"Question","name":"Can I request a new tool?","acceptedAnswer":{"@type":"Answer","text":"Yes, please do — suggestions through the contact page directly shape what gets built next."}}]}]}</script>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="/"><span class="logo-mark">Z̸</span> zalgo<em>-text</em>.org</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Zalgo Generator</a></li>
+      <li><a href="/tools">All Tools</a></li>
+      <li><a href="/glitch-text-generator">Glitch Text</a></li>
+      <li><a href="/fancy-text-generator">Fancy Text</a></li>
+      <li><a href="/cursed-text-generator">Cursed Text</a></li>
+      <li><a href="/guides">Guides</a></li>
+      <li><a href="/about" class="active">About</a></li>
+    </ul>
+  </div>
+</header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a><span class="sep">/</span><span aria-current="page">About this site</span></div></nav><main><div class="container"><div class="page-head"><h1>About this site</h1></div></div><section><div class="container prose"><p><b>zalgo-text.org</b> is a small, free collection of Unicode text tools. Type something, pick a style, copy it. That is the entire product, and there is deliberately nothing else — no account, no paywall, no newsletter popup and no upload of anything you type.</p><h2>Why build another one?</h2><p>Text generators are one of the oldest categories of free web tool, and most of them share the same problems: a wall of ads around a tiny input box, styles that quietly produce broken characters, and no explanation of why anything works.</p><p>We wanted three things to be different. The tools should be <b>correct</b> — every style map here was generated programmatically from the Unicode standard and then verified character by character, rather than copied from another site. The interface should be <b>usable on a phone</b>, since that is where most people copy text from. And the site should <b>explain itself</b>, because almost every problem people hit with these tools has a specific, knowable cause.</p><h2>How the tools are built</h2><ul class='dots'><li><b>Style maps are generated, not hand-typed.</b> A script walks the relevant Unicode blocks and emits the mappings, then checks every output character is actually assigned. Hand-copied tables are where the broken characters on other sites come from.</li><li><b>Known gaps are documented rather than hidden.</b> There is no small-capital Q in Unicode and no superscript q. We say so on the relevant pages instead of silently substituting and hoping.</li><li><b>The Zalgo cleaner is not naive.</b> Most cleaners normalise text first and destroy real accents in the process. Ours strips combining characters from the raw string, so <i>café</i> survives.</li><li><b>Everything runs client-side.</b> No text is ever sent to a server, which is a privacy property rather than a promise.</li></ul><h2>What we will not do</h2><ul class='dots'><li><b>Call these fonts.</b> They are substitute characters, and the difference explains most of the problems people run into.</li><li><b>Claim everything works everywhere.</b> Coverage genuinely varies by device and platform, and pretending otherwise just wastes your time.</li><li><b>Ignore the accessibility trade-off.</b> Styled text is harder for screen readers. That is worth knowing before you style your display name rather than after.</li><li><b>Ask you to sign up.</b> There is nothing to sign up for.</li></ul><h2>How the site is funded</h2><p>Through limited advertising that does not block the tools or interrupt what you are doing. There is no paid tier, no usage limit and no selling of data — since no data is collected in the first place. See the <a href='/privacy-policy'>privacy policy</a> for specifics.</p><h2>Get in touch</h2><p>Found a character that renders incorrectly, or a style you would like added? The <a href='/contact'>contact page</a> has the details. Bug reports about specific characters are particularly welcome — they are the fastest way to make the tools better.</p></div></section><section class="alt"><div class="container prose"><h2>Frequently asked questions</h2><div class="faq"><details><summary>Is zalgo-text.org free?</summary><div class="a"><p>Yes, entirely. Every tool is free with no account, no limits and no watermark.</p></div></details><details><summary>Do you store the text I type?</summary><div class="a"><p>No. All processing happens in your browser with JavaScript, so nothing is transmitted or stored.</p></div></details><details><summary>Are these real fonts?</summary><div class="a"><p>No. They are Unicode characters that look like styled letters, which is why they work in apps that do not allow font changes.</p></div></details><details><summary>Can I request a new tool?</summary><div class="a"><p>Yes, please do — suggestions through the contact page directly shape what gets built next.</p></div></details></div></div></section></main><footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-about">
+        <div class="logo"><span class="logo-mark">Z̸</span> zalgo<em>-text</em>.org</div>
+        <p>Free Unicode text tools that run entirely in your browser. Generate Zalgo, glitch, cursed and fancy
+        text, then copy and paste it into Instagram, TikTok, Discord, YouTube or anywhere else. No sign-up,
+        no limits, nothing stored.</p>
+      </div>
+      <div><h3 class="f-h">Zalgo & Glitch</h3><ul><li><a href="/">Zalgo Text Generator</a></li><li><a href="/glitch-text-generator">Glitch Text</a></li><li><a href="/cursed-text-generator">Cursed Text</a></li><li><a href="/creepy-text-generator">Creepy Text</a></li><li><a href="/zalgo-to-normal-text">Zalgo to Normal</a></li></ul></div><div><h3 class="f-h">Fancy Fonts</h3><ul><li><a href="/fancy-text-generator">Fancy Text</a></li><li><a href="/cursive-text-generator">Cursive Text</a></li><li><a href="/gothic-text-generator">Gothic Text</a></li><li><a href="/bold-text-generator">Bold Text</a></li><li><a href="/small-caps-generator">Small Caps</a></li></ul></div><div><h3 class="f-h">Site</h3><ul><li><a href="/tools">All Tools</a></li><li><a href="/guides">Guides</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="copy">© 2026 Zalgo Text Generator · zalgo-text.org — <a href="/privacy-policy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/disclaimer">Disclaimer</a> · <a href="/contact">Contact</a></div>
+  </div>
+</footer>
+<script src="/js/styles-data.js"></script>
+<script src="/js/engine.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

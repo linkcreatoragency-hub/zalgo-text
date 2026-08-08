@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zalgo-text.org/sitemap.xml
+
+# zalgo-text.org - free Unicode text generators
